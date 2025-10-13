@@ -1,0 +1,16 @@
+version : '3.8'
+
+services:
+  source_postgres:
+    image: postgres:1latest
+    container_name: source_postgres
+    environment:
+      POSTGRES_USER: source_user
+      POSTGRES_PASSWORD: source_password
+      POSTGRES_DB: source_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - source_postgres_data:/var/lib/postgresql/data
+    networks:
+      - data-engineering-net
